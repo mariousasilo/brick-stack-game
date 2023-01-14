@@ -4,14 +4,25 @@ from turtle import Turtle
 def border_create():
     border = Turtle()
     border.hideturtle()
+
     border.color("white")
+    border.penup()
+    border.left(180)
+    border.goto(x=-180, y=-220)
+    border.pendown()
+    for x in range (0, 3):
+        border.right(90 * ((-1) ** x))
+        border.fd(120)
+        border.right(90 * ((-1) ** x))
+        border.fd(360)
     border.penup()
     border.goto(x=-180, y=-220)
     border.pendown()
-    border.goto(x=180, y=-220)
-    border.goto(x=180, y=220)
-    border.goto(x=-180, y=220)
-    border.goto(x=-180, y=-220)
+    for _ in range(0, 2):
+        border.fd(360)
+        border.left(90)
+        border.fd(440)
+        border.left(90)
 
 
 class Bricks:
