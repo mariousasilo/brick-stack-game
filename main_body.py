@@ -18,6 +18,9 @@ class Bricks:
 
     def __init__(self):
         border_create()
+        self.FONT = ("Arial", 14, "normal")
+        self.level = Turtle()
+        self.level_config()
         self.x_pos = [-160, -120, -80, -40, 0, 40, 80, 120, 160]
         self.y_pos = [-200, -160, -120, -80, -40, 0, 40, 80, 120, 160, 200]
         self.groups = []
@@ -64,3 +67,10 @@ class Bricks:
                 if self.groups[stage][brick].xcor() != self.groups[stage-1][0].xcor() and self.groups[stage][brick].xcor() != self.groups[stage-1][1].xcor() and self.groups[stage][brick].xcor() != self.groups[stage-1][2].xcor():
                     self.groups[stage][brick].goto(x=-1000, y=0)
                     self.num_of_bricks -= 1
+
+    def level_config(self):
+        self.level.hideturtle()
+        self.level.penup()
+        self.level.color("White")
+        self.level.goto(x=-20, y=240)
+        self.level.write("Level: 0", font=self.FONT)

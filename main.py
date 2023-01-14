@@ -1,6 +1,8 @@
 import time
 from turtle import Screen
 from main_body import Bricks
+from tkinter import messagebox
+
 
 SP_1 = 0.05125
 SP_2 = 0.125
@@ -24,6 +26,8 @@ def deploy():
     if stage < 11:
         for x in range(0, bricks.num_of_bricks):
             bricks.groups[stage][x].goto(x=bricks.x_pos[x], y=bricks.y_pos[stage])
+    bricks.level.clear()
+    bricks.level.write(f"Level: {stage}", font=bricks.FONT)
 
 
 bricks = Bricks()
@@ -35,8 +39,8 @@ while stage < 11 and bricks.num_of_bricks > 0:
     root.update()
 
 if bricks.num_of_bricks > 0:
-    print("You win!")
+    messagebox.showinfo(message="Congratulations! You win!")
 else:
-    print("Game over")
+    messagebox.showerror(message="Game over!")
 
 root.mainloop()
